@@ -454,7 +454,7 @@ window.__require = function e(t, n, o) {
                     null != n.Instance && n.Instance.destroy(), n.Instance = this
                 }, t.prototype.start = function () {
                     this.TGColors.push("f43df7", "ef4126", "6ff814", "32cdf9", "fff02c", "f43df7", "fb4626", "6ff814", "50f7f0", "fff02c")
-                }, t.Instance = null, c([r(cc.SpriteFrame)], t.prototype, "adsbutton", void 0), c([r(cc.SpriteFrame)], t.prototype, "adsbutton2", void 0), c([r(cc.SpriteFrame)], t.prototype, "caidia", void 0), c([r(cc.SpriteFrame)], t.prototype, "fllows", void 0), c([r(cc.SpriteFrame)], t.prototype, "fruit", void 0), c([r(cc.SpriteFrame)], t.prototype, "guozhiZ", void 0), c([r(cc.SpriteFrame)], t.prototype, "guozhiL", void 0), c([r(cc.SpriteFrame)], t.prototype, "fruitL", void 0), t = n = c([i], t)
+                }, t.Instance = null,  c([r(cc.SpriteFrame)], t.prototype, "adsbutton2", void 0), c([r(cc.SpriteFrame)], t.prototype, "caidia", void 0), c([r(cc.SpriteFrame)], t.prototype, "fllows", void 0), c([r(cc.SpriteFrame)], t.prototype, "fruit", void 0), c([r(cc.SpriteFrame)], t.prototype, "guozhiZ", void 0), c([r(cc.SpriteFrame)], t.prototype, "guozhiL", void 0), c([r(cc.SpriteFrame)], t.prototype, "fruitL", void 0), t = n = c([i], t)
             }(cc.Component);
         n.default = s, cc._RF.pop()
     }, {}],
