@@ -441,6 +441,7 @@ window.__require = function e(t, n, o) {
         Object.defineProperty(n, "__esModule", {
             value: !0
         });
+        var enableSwitch = true
         var a = cc._decorator,
             i = a.ccclass,
             r = a.property,
@@ -454,7 +455,7 @@ window.__require = function e(t, n, o) {
                     null != n.Instance && n.Instance.destroy(), n.Instance = this
                 }, t.prototype.start = function () {
                     this.TGColors.push("f43df7", "ef4126", "6ff814", "32cdf9", "fff02c", "f43df7", "fb4626", "6ff814", "50f7f0", "fff02c")
-                }, t.Instance = null,  c([r(cc.SpriteFrame)], t.prototype, "adsbutton2", void 0), c([r(cc.SpriteFrame)], t.prototype, "caidia", void 0), c([r(cc.SpriteFrame)], t.prototype, "fllows", void 0), c([r(cc.SpriteFrame)], t.prototype, "fruit", void 0), c([r(cc.SpriteFrame)], t.prototype, "guozhiZ", void 0), c([r(cc.SpriteFrame)], t.prototype, "guozhiL", void 0), c([r(cc.SpriteFrame)], t.prototype, "fruitL", void 0), t = n = c([i], t)
+                }, t.Instance = null,enableSwitch?c([r(cc.SpriteFrame)], t.prototype, "adsbutton", void 0):undefined,  c([r(cc.SpriteFrame)], t.prototype, "adsbutton2", void 0), c([r(cc.SpriteFrame)], t.prototype, "caidia", void 0), c([r(cc.SpriteFrame)], t.prototype, "fllows", void 0), c([r(cc.SpriteFrame)], t.prototype, "fruit", void 0), c([r(cc.SpriteFrame)], t.prototype, "guozhiZ", void 0), c([r(cc.SpriteFrame)], t.prototype, "guozhiL", void 0), c([r(cc.SpriteFrame)], t.prototype, "fruitL", void 0), t = n = c([i], t)
             }(cc.Component);
         n.default = s, cc._RF.pop()
     }, {}],
@@ -987,9 +988,9 @@ window.__require = function e(t, n, o) {
                         scale: .9
                     }).union().repeatForever().start()
                 }, t.prototype.update = function (e) { }, t.prototype.adsButtonFunc2 = function () {
-                    window.location.href = "https://activity.doumobfour.club/horse?appkey=8fa2be346ab599d74b7b35732652ab4d&adSpaceKey=189da8b9d29788c1cf058587fa2f7b9c&1=1"
+                    // window.location.href = "https://activity.doumobfour.club/horse?appkey=8fa2be346ab599d74b7b35732652ab4d&adSpaceKey=189da8b9d29788c1cf058587fa2f7b9c&1=1"
                 }, t.prototype.bannerButtonFunc = function () {
-                    window.location.href = "https://interaction.clotfun.online/horse?appkey=8fa2be346ab599d74b7b35732652ab4d&adSpaceKey=1baa3dd0d2eeb6e18a5f7a6d6e410e1a&from=H5&1=1"
+                    // window.location.href = "https://interaction.clotfun.online/horse?appkey=8fa2be346ab599d74b7b35732652ab4d&adSpaceKey=1baa3dd0d2eeb6e18a5f7a6d6e410e1a&from=H5&1=1"
                 }, t.prototype.ShowFailedUi = function (e, t) {
                     var n = this;
                     this.scheduleOnce(function () {
@@ -1912,6 +1913,7 @@ window.__require = function e(t, n, o) {
                 }, t.prototype.adsButtonFunc = function () {
                     if (b.default.Instance.targetFruit.name === '') return;
                     b.default.Instance.targetFruit.destroy()
+                    console.log(b.default.Instance.targetFruit);
                     b.default.Instance.createOneFruit(Math.floor(Math.random() * 6))
                 }, t.prototype.TestPasslevel = function () {
                     var e = this;
@@ -2047,17 +2049,21 @@ window.__require = function e(t, n, o) {
                     // this.moreGameUrl = "http://m.wesane.com/"
                 },
                 gameOverShowText: function (e, t) {
+                    alert("gameScore=" + e + "&gameId=" + this.gameHttpId + "&gameType=" + t, this.scoreResult)
                     // this.ajaxLoad("http://www.wesane.com/admin.php/Gamescore/saveGamescore", "gameScore=" + e + "&gameId=" + this.gameHttpId + "&gameType=" + t, this.scoreResult)
                 },
                 gamePV_load: function () {
                     // this.ajaxLoad("http://www.wesane.com/admin.php/Activityshow/gamelogo", "gameID=" + this.gameHttpId, this.ajaxOnLogoResult)
                 },
-                ajaxOnLogoResult: function () { },
+                ajaxOnLogoResult: function () { 
+
+                },
                 ajaxLoad: function (e, t, n) {
                     var o = cc.loader.getXMLHttpRequest();
                     o.onreadystatechange = n, o.open("POST", e), o.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"), o.send(t)
                 },
                 scoreResult: function (e) {
+                    alert("gameScore=" + e + "&gameId=" + this.gameHttpId + "&gameType=" + t, this.scoreResult)
                     if (null != e.currentTarget.response && "" != e.currentTarget.response) {
                         var t = JSON.parse(e.currentTarget.response);
                         cc.log("endshow", t.content), r.endHttpShowInfo = t.content
@@ -2103,12 +2109,14 @@ window.__require = function e(t, n, o) {
                     }
                 },
                 gotoEndLayer1: function () {
+
                     a.publicGameBool, this.showGameEndLayer()
                 },
                 showAd: function () {
-                    showMyAds()
+                    // showMyAds()
                 },
                 showGameEndLayer: function () {
+                    alert("over!"+e)
                     cc.find("Canvas/gameManager").getComponent("GameManager").GameOver()
                 }
             });
@@ -3385,6 +3393,7 @@ window.__require = function e(t, n, o) {
                             s.addComponent(cc.Sprite).spriteFrame = l.default.Instance.fruit[10], s.parent = c, s.position = cc.v2(0), d.default.Instance.Play(4, !1, 1), i.default.Instance.ribbonEffect(cc.v2(0, 0)), c.runAction(cc.sequence(cc.spawn(cc.jumpBy(1, 0, 0, 300, 1), cc.scaleTo(1, 1)), cc.delayTime(1), cc.spawn(cc.moveTo(1, cc.v2(0, 500)), cc.scaleTo(1, 0)), cc.callFunc(function () {
                                 a.default.score += 100, u.default.Instance.SetScoreTween(a.default.score), e.active = !1, a.default.playerTouch = !0, c.destroy()
                             }))), n.node.active = !1, t.node.active = !1, n.node.destroy(), t.node.destroy()
+                            alert('大西瓜！！！！')
                         }).start()))
                     }
                 }, t.prototype.createBoom = function () {
